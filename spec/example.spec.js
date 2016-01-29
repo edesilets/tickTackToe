@@ -1,6 +1,6 @@
 'use strict';
 
-var example = require('../assets/scripts/example');
+var example = require('../assets/scripts/myJavaScript');
 
 describe('Example', function() {
   it('is true', function() {

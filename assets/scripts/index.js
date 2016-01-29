@@ -4,7 +4,7 @@
 // var example = require('./example');
 
 // use require without a reference to ensure a file is bundled
-require('./example');
+require('./myJavaScript');
 
 // load sass manifest
 require('../styles/index.scss');
