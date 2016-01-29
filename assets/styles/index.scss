@@ -1,7 +1,88 @@
-$background-color: LightSkyBlue;
-$font-color: #dfdfdf;
-
 body {
-  background-color: $background-color;
-  color: $font-color;
+  background-color: LightSkyBlue;
+}
+
+.welcomeTitle {
+  text-align: center;
+  font-size: 40px;
+  font-family: cursive;
+  color: blue;
+}
+
+.wrapper {
+  background-color: null; /*this is bad. figure out right way.*/
+  height: 900px;
+  width: 100%;
+}
+
+.r0c0 {
+  display: inline-block;
+  background-color: white;
+  height: 33%; /*Why is this not inherating from parent */
+  width: 33%;
+  margin: 0;
+}
+
+.r0c1 {
+  display: inline-block;
+  background-color: white;
+  height: 33%;
+  width: 33%;
+}
+
+.r0c2 {
+  display: inline-block;
+  background-color: white;
+  height: 33%;
+  width: 33%;
+  top: 20%;
+}
+
+.r1c0 {
+  display: inline-block;
+  background-color: white;
+  height: 33%; /*Why is this not inherating from parent */
+  width: 33%;
+  margin: 0;
+}
+
+.r1c1 {
+  display: inline-block;
+  background-color: white;
+  height: 33%;
+  width: 33%;
+  /*border-style: solid;
+  border-width: 5px;
+  border-color: red;*/
+}
+
+.r1c2 {
+  display: inline-block;
+  background-color: white;
+  height: 33%;
+  width: 33%;
+  top: 20%;
+}
+
+.r2c0 {
+  display: inline-block;
+  background-color: white;
+  height: 33%; /*Why is this not inherating from parent */
+  width: 33%;
+  margin: 0;
+}
+
+.r2c1 {
+  display: inline-block;
+  background-color: white;
+  height: 33%;
+  width: 33%;
+}
+
+.r2c2 {
+  display: inline-block;
+  background-color: white;
+  height: 33%;
+  width: 33%;
+  top: 20%;
 }
