@@ -1,28 +1,34 @@
 'use strict';
 
-let gameBoard = [
-          [[],[],[]],
-          [[],[],[]],
-          [[],[],[]],
+const gameBoard = [
+  ['X','O','O'],
+  ['X','X','X'],
+  ['O','O','O']
 ];
 
-var setSquare = function(player, row, col) {
-  checkerboard[row][col] = player;
-}
+const setSquare = function(player, row, col) {
+  gameBoard[row][col] = player;
+};
 
-var getPieceLocation = function(row, col) {
-  var pieceType = gameBoard[row][col];
+const getPieceAt = function(row, col) {
+  let pieceType = gameBoard[row][col];
   return pieceType;
-}
+};
 
-function resetBoard() {
+const resetBoard = function() {
   // Reset the board to null
-  var boardRows = gameBoard.length;
+  const boardRows = gameBoard.length;
 
-  for (var i = 0; i < boardRows; i++) {
-    for (var z = 0; z < boardRows; z++) {
+  for (let i = 0; i < boardRows; i++) {
+    for (let z = 0; z < boardRows; z++) {
       gameBoard[i][z] = null;
     }
   }
 }
-module.exports = true;
+debugger;
+
+module.exports = {
+  setSquare: setSquare,
+  getPieceLocation: getPieceLocation,
+  resetBoard: resetBoard
+};
