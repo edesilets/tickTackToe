@@ -1,6 +1,5 @@
 body {
   background-color: LightSkyBlue;
-  $square-color:#ff;
 }
 
 .welcome-title {
@@ -10,8 +9,8 @@ body {
   text-align: center;
 }
 
-.wrapper {
-  background-color: black; //this is bad. figure out right way.
+.gameboard-wrapper {
+  background-color: black;
   height: 800px;
   width: 100%;
 }
@@ -19,6 +18,6 @@ body {
 .gameboard {
   background-color: white;
   display: inline-block;
-  height: 33%; //Why is this not inherating from parent
+  height: 33%;
   width: 33%;
 }
