@@ -57,13 +57,20 @@ input {
 #submit {
   border-radius: 1em;
 }
+
+.game-page {
+  position: relative;
+}
 /* --------------- User Panel Styling --------------- */
 
 nav {
-  padding: 50px;
-  width: 16%;
-  height: 800px;
   border-style: solid;
+  height: 800px;
+  left: 0px;
+  padding: 50px;
+  position: absolute;
+  width: 16%;
+
 }
 
 /* --------------- Game Board Styling --------------- */
@@ -78,8 +85,9 @@ nav {
 .gameboard-wrapper {
   background-color: #000;
   height: 800px;
-  width: 99%;
+  margin-left: 15%; // must be same as nav width
   min-width: 99% // look at max width
+  //width: 99%;
 }
 
 .gameboard {
