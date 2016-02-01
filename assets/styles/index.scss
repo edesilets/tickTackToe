@@ -78,12 +78,13 @@ nav {
 .gameboard-wrapper {
   background-color: #000;
   height: 800px;
-  width: 100%;
+  width: 99%;
+  min-width: 99% // look at max width
 }
 
 .gameboard {
   background-color: #fff;
   display: inline-block;
   height: 33%;
-  width: 33%;
+  width: 30%;
 }
