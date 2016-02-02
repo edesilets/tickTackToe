@@ -9,6 +9,13 @@ URL="${BASE_URL}/sign-up"
 
 url() {
   CONTENT_TYPE="application/x-www-form-urlencoded"
+
+  curl ${URL} \
+  --silent \
+  --request POST \
+  --header "Content-Type: ${CONTENT_TYPE}" \
+  --data-urlencode "credentials[email]=${EMAIL}" \
+  --data-urlencode "credentials[password]=${PASSWORD}"
 }
 
 json() {
@@ -30,5 +37,3 @@ json() {
 json
 
 echo
-#     "id":6,
-#     "email":"test@test.js"
