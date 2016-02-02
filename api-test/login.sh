@@ -5,6 +5,7 @@ PASSWORD='anpassword'
 
 BASE_URL="http://tic-tac-toe.wdibos.com"
 URL="${BASE_URL}/sign-in"
+#URL="http://httpbin.org/post"
 
 url() {
   CONTENT_TYPE="application/x-www-form-urlencoded"
