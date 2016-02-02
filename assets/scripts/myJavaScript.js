@@ -61,6 +61,18 @@ let winnerHorz = function(player, array) {           // simplify !!!!!
   }
 }
 
+const rowWinner = function (startIndex, endIndex, array, player) {
+  let count = false;
+  for (let i = startIndex; i <= endIndex; i++) {
+    if (array[i] === player) {
+      count++;
+    }
+    if (count === 3) {
+      return player;
+    }
+  }
+}
+
 const setSquare = function(player, row, col) {
   gameBoard[row][col] = player;
 };
