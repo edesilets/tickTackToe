@@ -1,7 +1,7 @@
 #!/bin/bash
 
 EMAIL='test@test.j'
-PASSWORD='anpassword'
+PASSWORD='defcon'
 
 BASE_URL="http://tic-tac-toe.wdibos.com"
 URL="${BASE_URL}/sign-in"
@@ -14,8 +14,8 @@ url() {
   --silent \
   --request POST \
   --header "Content-Type: ${CONTENT_TYPE}" \
-  --data-urlencoded "crendentials[email]=${EMAIL}"\
-  --data-urlencoded "crendentials[password]=${PASSWORD}"
+  --data-urlencode "credentials[email]=${EMAIL}"\
+  --data-urlencode "credentials[password]=${PASSWORD}"
 }
 
 json() {
