@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>TickTackToe</title>
     </head>
     <body>
+      <div class="login-wrapper">
+        <h1>Welcome</br>Tick Tack Toe</br>Awaits!</h1>
+        <img class="logo" src="http://vignette4.wikia.nocookie.net/spongebob/images/4/45/Squidward_Tic_Tac_Toe.png/revision/latest?cb=20130620110519">
 
-      <h1>Production model</h1>
+        <form id="register-login">
+          <input name="credentials[email]" type="text" placeholder="jason@fox.com">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+          <input type="submit" id="submit" value="Register/Login">
+        </form>
 
-<!---*********** Do not remove code below. It is required to work. *********** --->
+        <form id="LogOut">
+          <input type="submit" id="submit" value="LogOut">
+        </form>
+
+      <div class="right-user-panel">
+        <ul>
+          <li>profile image</li>
+          <li>Login Status</li>
+          <li>wins</li>
+          <li>ties</li>
+          <li>losses</li>
+          <li>ratio</li>
+        </ul>
+      </div>
+      <div class="welcome-title">Tick Tack Toe</div>
+      <div class="gameboard-wrapper">
+          <div class="gameboard" id='0'></div>
+          <div class="gameboard" id='1'></div>
+          <div class="gameboard" id='2'></div>
+          <div class="gameboard" id='3'></div>
+          <div class="gameboard" id='4'></div>
+          <div class="gameboard" id='5'></div>
+          <div class="gameboard" id='6'></div>
+          <div class="gameboard" id='7'></div>
+          <div class="gameboard" id='8'></div>
+      </div>
+      <i class="fa fa-times fa-stack-2x"></i>
+      <i class="fa fa-circle-o fa-2x"></i>
+      <i class="fa fa-cog fa-2x"></i>
+      <!---*********** My required rescouces *********** --->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <!---*********** Do not remove code below. It is required to work. *********** --->
       <script src="http://localhost:8080/webpack-dev-server.js"></script>
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
