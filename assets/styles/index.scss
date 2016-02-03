@@ -57,6 +57,22 @@ input {
 #submit {
   border-radius: 1em;
 }
+
+.game-page {
+  position: relative;
+}
+/* --------------- User Panel Styling --------------- */
+
+nav {
+  border-style: solid;
+  height: 800px;
+  left: 0px;
+  padding: 50px;
+  position: absolute;
+  width: 16%;
+
+}
+
 /* --------------- Game Board Styling --------------- */
 
 .welcome-title {
@@ -69,12 +85,14 @@ input {
 .gameboard-wrapper {
   background-color: #000;
   height: 800px;
-  width: 100%;
+  margin-left: 15%; // must be same as nav width
+  min-width: 99% // look at max width
+  //width: 99%;
 }
 
 .gameboard {
   background-color: #fff;
   display: inline-block;
   height: 33%;
-  width: 33%;
+  width: 30%;
 }
