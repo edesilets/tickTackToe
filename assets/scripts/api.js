@@ -1,8 +1,7 @@
 'use strict';
 
-const staticAppData = {
-  baseUrl ; 'http://tic-tac-toe.wdibos.com/'
-
+let staticAppData = {
+  baseUrl : 'http://tic-tac-toe.wdibos.com/',
 };
 
 // Functionality of all api features.
@@ -15,7 +14,7 @@ let logRequestError = function(requestObject) {
 };
 
 // API Controls
-let signUp =  function(event) {
+let signUp = function(event) {
   event.preventDefault();                   // Stops page Reload
   let item = new FormData(event.target);    // object containing the FormData
   $.ajax({
@@ -29,9 +28,29 @@ let signUp =  function(event) {
   .fail(logRequestError);
 };
 
+let logIn = function(event) {
+  event.preventDefault();                   // Stops page Reload
+  let item = new FormData(event.target);    // object containing the FormData
+  $.ajax({
+    url: staticAppData.baseUrl + '/sign-in',
+    type: 'POST',
+    contentType: false,                     // Needed for FormData
+    processData: false,                     // Needed for FormData This is because item
+    data: item                              // item is referancing the new object called 'item'.
+  })
+  .done(function (data) {
+    logResponseBody;
+    staticAppData = data;
+  })
+  .fail(logRequestError);
+};
 
 let init = function() {
-  $('#register-login').on('submit', signUp);
+  $('#register-login').on('submit', function () {
+    signUp;
+  });
+  $('#LogOut').on('submit', LogOut);
+  console.log(staticAppData);
 };
 
 $(document).ready(init);
