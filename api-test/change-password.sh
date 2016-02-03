@@ -1,9 +1,9 @@
 #!/bin/bash
 
-TOKEN='b726d03d534daa2a05a879ef3a93c3f3'
+TOKEN='047683a77458460dbd0065cafbfc0fa8'
 USER_ID='7'
-OLD_PW='anpassword'
-NEW_PW='defcon'
+OLD_PW='defcon'
+NEW_PW='password'
 
 BASE_URL="http://tic-tac-toe.wdibos.com"
 URL="${BASE_URL}/change-password/${USER_ID}"
@@ -13,7 +13,7 @@ url() {
   CONTENT_TYPE="application/x-www-form-urlencoded"
 
   curl ${URL}\
-  --include \
+  --silent \
   --request PATCH \
   --header "Content-Type: ${CONTENT_TYPE}" \
   --header "Authorization: Token token=${TOKEN}" \
@@ -21,20 +21,18 @@ url() {
   --data-urlencode "passwords[new]=${NEW_PW}"
 }
 
-
 json() {
-
+#
   CONTENT_TYPE="application/json"
 
   curl ${URL}\
-  --silent \
+  --include \
   --request PATCH \
   --header "Authorization: Token token=${TOKEN}" \
-  #how to do this correctly?
   --data "{
-      \"credentials\": {
-      \"email\": \"${EMAIL}\",
-      \"password\": \"${PASSWORD}\"
+      \"passwords\": {
+      \"old\": \"${OLD_PW}\",
+      \"new\": \"${NEW_PW}\"
     }
   }"
 
