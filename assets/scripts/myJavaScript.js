@@ -2,7 +2,7 @@
 
 const gameBoard = ['x','x','x',3,4,5,6,7,8];
 
-let winnerDIA = function(player, array) {                 // See if possible to simplify more!
+let winnerDia = function(player, array) {                 // See if possible to simplify more!
   let error = console.log('No Winning Diagnoal found.');
   let count = 0;
 
@@ -59,7 +59,7 @@ let winnerHorz = function(player, array) {           // simplify !!!!!
       return player;
     }
   }
-}
+};
 
 const rowWinner = function (startIndex, endIndex, array, player) {
   let count = false;
@@ -71,7 +71,7 @@ const rowWinner = function (startIndex, endIndex, array, player) {
       return player;
     }
   }
-}
+};
 
 const setSquare = function(player, row, col) {
   gameBoard[row][col] = player;
@@ -91,10 +91,11 @@ const resetBoard = function() {
       gameBoard[i][z] = null;
     }
   }
-}
+};
 
 module.exports = {
-  setSquare: setSquare,
-  getPieceLocation: getPieceLocation,
-  resetBoard: resetBoard
+  true
+  // setSquare: setSquare,
+  // getPieceLocation: getPieceLocation,
+  // resetBoard: resetBoard
 };
