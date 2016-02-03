@@ -1,9 +1,9 @@
 #!/bin/bash
 
-TOKEN='047683a77458460dbd0065cafbfc0fa8'
+TOKEN='4764a316576240860c4e6271aa6d17c5'
 USER_ID='7'
-OLD_PW='defcon'
-NEW_PW='password'
+OLD_PW='password'
+NEW_PW='defcon'
 
 BASE_URL="http://tic-tac-toe.wdibos.com"
 URL="${BASE_URL}/change-password/${USER_ID}"
@@ -23,18 +23,18 @@ url() {
 
 json() {
 #
-  CONTENT_TYPE="application/json"
-
-  curl ${URL}\
-  --include \
-  --request PATCH \
-  --header "Authorization: Token token=${TOKEN}" \
-  --data "{
-      \"passwords\": {
-      \"old\": \"${OLD_PW}\",
-      \"new\": \"${NEW_PW}\"
-    }
-  }"
+  # CONTENT_TYPE="application/json"
+  #
+  # curl ${URL}\
+  # --include \
+  # --request PATCH \
+  # --header "Authorization: Token token=${TOKEN}" \
+  # --data "{
+  #     \"passwords\": {
+  #     \"old\": \"${OLD_PW}\",
+  #     \"new\": \"${NEW_PW}\"
+  #   }
+  # }"
 
 }
 
