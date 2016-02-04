@@ -2,8 +2,20 @@
 
 const gameBoard = ['x','x','x',3,'x',5,6,'x',8]; // do not change array name all logic will break for functions
 
+const checkWinner = function (player) {
+  if (winnerDia(player)) {
+
+    return player;
+  } else if (winnerHorz(player)) {
+
+    return player;
+  } else if (winnerVert(player)) {
+
+    return player;
+  }
+}
+
 const winnerDia = function(player) {                 // See if possible to simplify more!
-  let error = console.log('No Winning Diagnoal found.');
   let count = 0;
 
   for (let i = 0; i < gameBoard.length; i += 4) {
@@ -25,7 +37,7 @@ const winnerDia = function(player) {                 // See if possible to simpl
       return player;
     }
   }
-  return error;
+  return false;
 };
 
 const winnerHorz = function(player) {           // simplify !!!!!
@@ -56,12 +68,14 @@ const winnerHorz = function(player) {           // simplify !!!!!
       return player;
     }
   }
+  return false;
 };
 
 const winnerVert = function (player) {
   for (let i = 0; i <= 2; i++) {
     let verticalInc = i;
     let count = false;
+
     for (verticalInc; verticalInc <= gameBoard.length; verticalInc += 3) {
       if (gameBoard[verticalInc] === player) {
         count++;
@@ -71,6 +85,7 @@ const winnerVert = function (player) {
       }
     }
   }
+  return false;
 };
 
 const gameBoardReset = function () {
@@ -88,8 +103,9 @@ const getPieceAt = function(place) {
   return pieceType;
 };
 module.exports = {
-  true
-  // setSquare: setSquare,
-  // getPieceLocation: getPieceLocation,
-  // resetBoard: resetBoard
+ getPieceAt,
+ setSquare,
+ gameBoardReset,
+ checkWinner,
+ gameBoard,
 };
