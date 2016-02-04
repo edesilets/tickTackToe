@@ -1,6 +1,6 @@
 'use strict';
 
-const gameBoard = ['x','x','x',3,4,5,6,7,8];
+const gameBoard = ['x','x','x',3,'x',5,6,'x',8];
 
 let winnerDia = function(player, array) {                 // See if possible to simplify more!
   let error = console.log('No Winning Diagnoal found.');
@@ -11,7 +11,6 @@ let winnerDia = function(player, array) {                 // See if possible to 
       count++;
     }
     if (count === 3) {
-
       return player;
     }
   }
@@ -20,11 +19,9 @@ let winnerDia = function(player, array) {                 // See if possible to 
 
   for (let i = 2; i < array.length; i += 2) {
     if (array[i] === player) {
-
       count++;
     }
     if (count === 3) {
-
       return player;
     }
   }
@@ -61,6 +58,21 @@ let winnerHorz = function(player, array) {           // simplify !!!!!
   }
 };
 
+let winnerVert = function (player, array) {
+  for (var i = 0; i <= 2; i++) {
+    let verticalInc = i;
+    let count = false;
+    for (verticalInc; verticalInc <= array.length; verticalInc += 3) {
+      if (array[verticalInc] === player) {
+        count++;
+      }
+      if (count === 3) {
+        return player;
+      }
+    }
+  }
+};
+
 const rowWinner = function (startIndex, endIndex, array, player) {
   let count = false;
   for (let i = startIndex; i <= endIndex; i++) {
@@ -74,7 +86,7 @@ const rowWinner = function (startIndex, endIndex, array, player) {
 };
 
 const setSquare = function(player, row, col) {
-  gameBoard[row][col] = player;
+  gameBoard[row] = player;
 };
 
 const getPieceAt = function(row, col) {
