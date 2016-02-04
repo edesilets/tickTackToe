@@ -8,14 +8,27 @@
         <h1>Welcome</br>Tick Tack Toe</br>Awaits!</h1>
         <img class="logo" src="http://vignette4.wikia.nocookie.net/spongebob/images/4/45/Squidward_Tic_Tac_Toe.png/revision/latest?cb=20130620110519">
 
-        <form id="register-login">
+        <form id="register">
           <input name="credentials[email]" type="text" placeholder="jason@fox.com">
           <input name="credentials[password]" type="password" placeholder="Password">
           <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-          <input type="submit" id="submit" value="Register/Login">
+          <input type="submit" id="submit" value="Register">
         </form>
-        <form id="LogOut">
+
+        <form id="logIn">
+          <input name="credentials[email]" type="text" placeholder="jason@fox.com">
+          <input name="credentials[password]" type="text" placeholder="Password">
+          <input type="submit" id="submit" value="Login">
+        </form>
+
+        <form id="logOut">
           <input type="submit" id="submit" value="LogOut">
+        </form>
+
+        <form id="changePw">
+          <input name="passwords[old]" type="text" placeholder="Password">
+          <input name="passwords[new]" type="text" placeholder="Confirm Password">
+          <input type="submit" id="submit" value="change myfucking password">
         </form>
       </div>
       <div class="welcome-title">Tick Tack Toe</div>
