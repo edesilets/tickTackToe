@@ -1,6 +1,6 @@
 'use strict';
 
-let staticAppData = {
+const staticAppData = {
   baseUrl : 'http://tic-tac-toe.wdibos.com',
 };
 
@@ -88,14 +88,10 @@ let changePw = function(event) {
   .fail(logRequestError);
 };
 
-let init = function() {
-  $('#register').on('submit', register);
-  $('#logIn').on('submit', logIn);
-  $('#logOut').on('submit', logOut);
-  $('#changePw').on('submit', changePw);
-  console.log(staticAppData);
-
+module.exports = {
+staticAppData,
+register,
+logIn,
+logOut,
+changePw,
 };
-
-$(document).ready(init);
-module.exports = true;
