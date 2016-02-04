@@ -73,6 +73,12 @@ let winnerVert = function (player, array) {
   }
 };
 
+let gameBoardReset = function (array) {
+  for (var i = 0; i < array.length; i++) {
+    array[i] = null;
+  }
+};
+
 const rowWinner = function (startIndex, endIndex, array, player) {
   let count = false;
   for (let i = startIndex; i <= endIndex; i++) {
@@ -93,18 +99,6 @@ const getPieceAt = function(row, col) {
   let pieceType = gameBoard[row][col];
   return pieceType;
 };
-
-const resetBoard = function() {
-  // Reset the board to null
-  const boardRows = gameBoard.length;
-
-  for (let i = 0; i < boardRows; i++) {
-    for (let z = 0; z < boardRows; z++) {
-      gameBoard[i][z] = null;
-    }
-  }
-};
-
 module.exports = {
   true
   // setSquare: setSquare,
