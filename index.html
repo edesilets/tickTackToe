@@ -4,22 +4,45 @@
       <title>TickTackToe</title>
     </head>
     <body>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Sign In
+      </button>
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Register
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <form id="register">
+                <input name="credentials[email]" type="text" placeholder="jason@fox.com">
+                <input name="credentials[password]" type="password" placeholder="Password">
+                <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+                <input type="submit" id="submit" value="Register" class="btn btn-primary">
+              </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" id="register-button" class="btn btn-primary">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="login-wrapper">
         <h1>Welcome</br>Tick Tack Toe</br>Awaits!</h1>
         <img class="logo" src="http://vignette4.wikia.nocookie.net/spongebob/images/4/45/Squidward_Tic_Tac_Toe.png/revision/latest?cb=20130620110519">
-
-        <form id="register">
-          <input name="credentials[email]" type="text" placeholder="jason@fox.com">
-          <input name="credentials[password]" type="password" placeholder="Password">
-          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-          <input type="submit" id="submit" value="Register">
-        </form>
 
         <form id="logIn">
           <input name="credentials[email]" type="text" placeholder="jason@fox.com">
           <input name="credentials[password]" type="text" placeholder="Password">
           <input type="submit" id="submit" value="Login">
         </form>
+      </div>
 
         <form id="logOut">
           <input type="submit" id="submit" value="LogOut">
