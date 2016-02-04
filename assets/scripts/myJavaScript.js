@@ -79,24 +79,12 @@ let gameBoardReset = function (array) {
   }
 };
 
-const rowWinner = function (startIndex, endIndex, array, player) {
-  let count = false;
-  for (let i = startIndex; i <= endIndex; i++) {
-    if (array[i] === player) {
-      count++;
-    }
-    if (count === 3) {
-      return player;
-    }
-  }
+const setSquare = function(player, place) {
+  gameBoard[place] = player;
 };
 
-const setSquare = function(player, row, col) {
-  gameBoard[row] = player;
-};
-
-const getPieceAt = function(row, col) {
-  let pieceType = gameBoard[row][col];
+const getPieceAt = function(place) {
+  let pieceType = gameBoard[place];
   return pieceType;
 };
 module.exports = {
