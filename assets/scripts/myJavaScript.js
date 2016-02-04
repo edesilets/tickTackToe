@@ -1,13 +1,13 @@
 'use strict';
 
-const gameBoard = ['x','x','x',3,'x',5,6,'x',8];
+const gameBoard = ['x','x','x',3,'x',5,6,'x',8]; // do not change array name all logic will break for functions
 
-let winnerDia = function(player, array) {                 // See if possible to simplify more!
+const winnerDia = function(player) {                 // See if possible to simplify more!
   let error = console.log('No Winning Diagnoal found.');
   let count = 0;
 
-  for (let i = 0; i < array.length; i += 4) {
-    if (array[i] === player) {
+  for (let i = 0; i < gameBoard.length; i += 4) {
+    if (gameBoard[i] === player) {
       count++;
     }
     if (count === 3) {
@@ -17,8 +17,8 @@ let winnerDia = function(player, array) {                 // See if possible to 
 
   count = 0;
 
-  for (let i = 2; i < array.length; i += 2) {
-    if (array[i] === player) {
+  for (let i = 2; i < gameBoard.length; i += 2) {
+    if (gameBoard[i] === player) {
       count++;
     }
     if (count === 3) {
@@ -28,12 +28,12 @@ let winnerDia = function(player, array) {                 // See if possible to 
   return error;
 };
 
-let winnerHorz = function(player, array) {           // simplify !!!!!
+const winnerHorz = function(player) {           // simplify !!!!!
   let error = console.log('No in line winners.');
   let count = false;
   //array inc for expantion use it insed for I so each iteration increases.
   for (let i = 0; i <= 2; i++) {
-    if (array[i] === player) {
+    if (gameBoard[i] === player) {
       count++;
     }
     if (count === 3) {
@@ -41,7 +41,7 @@ let winnerHorz = function(player, array) {           // simplify !!!!!
     }
   }
   for (let i = 3; i <= 5; i++) {
-    if (array[i] === player) {
+    if (gameBoard[i] === player) {
       count++;
     }
     if (count === 3) {
@@ -49,7 +49,7 @@ let winnerHorz = function(player, array) {           // simplify !!!!!
     }
   }
   for (let i = 6; i <= 8; i++) {
-    if (array[i] === player) {
+    if (gameBoard[i] === player) {
       count++;
     }
     if (count === 3) {
@@ -58,12 +58,12 @@ let winnerHorz = function(player, array) {           // simplify !!!!!
   }
 };
 
-let winnerVert = function (player, array) {
-  for (var i = 0; i <= 2; i++) {
+const winnerVert = function (player) {
+  for (let i = 0; i <= 2; i++) {
     let verticalInc = i;
     let count = false;
-    for (verticalInc; verticalInc <= array.length; verticalInc += 3) {
-      if (array[verticalInc] === player) {
+    for (verticalInc; verticalInc <= gameBoard.length; verticalInc += 3) {
+      if (gameBoard[verticalInc] === player) {
         count++;
       }
       if (count === 3) {
@@ -73,9 +73,9 @@ let winnerVert = function (player, array) {
   }
 };
 
-let gameBoardReset = function (array) {
-  for (var i = 0; i < array.length; i++) {
-    array[i] = null;
+const gameBoardReset = function () {
+  for (let i = 0; i < gameBoard.length; i++) {
+    gameBoard[i] = null;
   }
 };
 
