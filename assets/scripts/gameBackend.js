@@ -1,17 +1,17 @@
 'use strict';
 
-const gameBoard = ['x','x','x',3,'x',5,6,'x',8]; // do not change array name all logic will break for functions
+const gameBoard = [null,null,null,null,null,null,null,null,null]; // do not change array name all logic will break for functions
 
 const checkWinner = function (player) {
   if (winnerDia(player)) {
 
-    return player;
+    return true;
   } else if (winnerHorz(player)) {
 
-    return player;
+    return true;
   } else if (winnerVert(player)) {
 
-    return player;
+    return true;
   }
 }
 
@@ -23,7 +23,7 @@ const winnerDia = function(player) {                 // See if possible to simpl
       count++;
     }
     if (count === 3) {
-      return player;
+      return true;
     }
   }
 
@@ -34,14 +34,13 @@ const winnerDia = function(player) {                 // See if possible to simpl
       count++;
     }
     if (count === 3) {
-      return player;
+      return true;
     }
   }
   return false;
 };
 
 const winnerHorz = function(player) {           // simplify !!!!!
-  let error = console.log('No in line winners.');
   let count = false;
   //array inc for expantion use it insed for I so each iteration increases.
   for (let i = 0; i <= 2; i++) {
@@ -49,7 +48,7 @@ const winnerHorz = function(player) {           // simplify !!!!!
       count++;
     }
     if (count === 3) {
-      return player;
+      return true;
     }
   }
   for (let i = 3; i <= 5; i++) {
@@ -57,7 +56,7 @@ const winnerHorz = function(player) {           // simplify !!!!!
       count++;
     }
     if (count === 3) {
-      return player;
+      return true;
     }
   }
   for (let i = 6; i <= 8; i++) {
@@ -65,7 +64,7 @@ const winnerHorz = function(player) {           // simplify !!!!!
       count++;
     }
     if (count === 3) {
-      return player;
+      return true;
     }
   }
   return false;
@@ -81,7 +80,7 @@ const winnerVert = function (player) {
         count++;
       }
       if (count === 3) {
-        return player;
+        return true;
       }
     }
   }
