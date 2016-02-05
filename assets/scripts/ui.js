@@ -21,7 +21,6 @@ let postScoreBoard = function () {
 };
 
 let createMove = function () {
-  debugger;
   $('.gameboard').on('click', function () {
       if (count <= 8) {
         // this is referring to the selected DIV
@@ -31,6 +30,7 @@ let createMove = function () {
           count++;
           //api.updateGame(index , currentplayer);
           //api push one move at a time
+          console.log(gameFunctions.gameBoard);
           let oppWinner = currentPlayer === 'x' ? 'o' : 'x';
           if (gameFunctions.checkWinner(currentPlayer) || gameFunctions.checkWinner(oppWinner)) {
             currentPlayer === 'x' ? score.playerXWins++ : score.playerOWins++;
