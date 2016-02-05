@@ -12,6 +12,14 @@ let score = {
   tie : 0
 }
 
+let postScoreBoard = function () {
+  console.error('postScoreBoard');
+  $('#xwins').text(score.playerXWins);
+  $('#xloss').text(score.playerXLoss);
+  $('#owins').text(score.playerOWins);
+  $('#oloss').text(score.playerOLoss);
+}
+
 let createMove = function () {
   $('.gameboard').on('click', function () {
       if ($(this).text() === '') {
@@ -20,13 +28,14 @@ let createMove = function () {
         count++;
         //api.updateGame(index , currentplayer);
         //api push one move at a time
-        if (gameFunctions.checkWinner(currentPlayer)) {
-          confirm(currentPlayer + ' has won!');
+        let oppWinner = currentPlayer === 'x' ? 'o' : 'x';
+        if (gameFunctions.checkWinner(currentPlayer)) { // || gameFunctions.checkWinner(oppWinner)
           currentPlayer === 'x' ? score.playerXWins++ : score.playerOWins++;
           currentPlayer === 'x' ? score.playerOLoss++ : score.playerXLoss++;
+          confirm(currentPlayer + ' has won!');
           return;
         }
-        currentPlayer = currentPlayer === 'x'  ? 'o' : 'x';
+        currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
       } else {
         confirm('sorry someone is all ready here!');
     }
@@ -35,4 +44,6 @@ let createMove = function () {
 
 module.exports = {
   createMove,
+  postScoreBoard,
+  score
 };

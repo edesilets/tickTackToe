@@ -15,6 +15,7 @@ let init = function() {
   $('#changePw').on('submit', api.changePw);
   console.log(api.staticAppData);
   jq.createMove();
+  jq.postScoreBoard();
 };
 
 $(document).ready(init);
