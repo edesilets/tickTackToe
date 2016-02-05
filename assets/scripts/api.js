@@ -46,6 +46,7 @@ let logIn = function(event) {
   .done(function (data) {
     console.log(data);
     staticAppData.userData = data;
+    createGame();
   })
   .fail(logRequestError);
 };
@@ -64,7 +65,7 @@ let logOut = function(event) {
     data: item                              // item is referancing the new object called 'item'.
   })
   .done(function () {
-    console.log('you are loged out!');
+    alert('you are loged out!');
   })
   .fail(logRequestError);
 };
@@ -83,10 +84,87 @@ let changePw = function(event) {
     data: item                              // item is referancing the new object called 'item'.
   })
   .done(function () {
-    console.log('you have changed your password');
+    alert('you have changed your password');
   })
   .fail(logRequestError);
 };
+/* ------------------- LOG IN OUT OR REGISTER  API --------------------------------------------*/
+
+let createGame = function() { //sighn in done and when new game is created.
+  $.ajax({
+    url: staticAppData.baseUrl + '/games',
+    type: 'POST',
+    headers: {
+      Authorization: 'Token token=' + staticAppData.userData.user.token,
+    },
+    data: {}
+  })
+  .done(function(data){
+    staticAppData.gameData = data.game;
+    console.log('createGame: ',staticAppData.gameData);
+  })
+  .fail(logRequestError);
+};
+
+let updateGame = function(player, index){ /// put index and player
+  $.ajax({
+    url: staticAppData.baseUrl + '/games/' + staticAppData.gameData.id,
+    type: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + staticAppData.userData.user.token,
+    },
+    data: {
+      "game": {
+        "cell": {
+          "index": index,
+          "value": player,
+        },
+      // "over": true
+      }
+    }
+  })
+  .done(function(data){
+    staticAppData.gameData = data.game;
+    getUserGames();
+    console.log(data);
+    showGame();
+  })
+  .fail(logRequestError);
+};
+
+let showGame = function(){ // put index and player
+    $.ajax({
+      url: staticAppData.baseUrl + '/games/' + staticAppData.gameData.id,
+      type: 'GET',
+      headers: {
+        Authorization: 'Token token=' + staticAppData.userData.user.token,
+      },
+      data: {}
+    })
+    .done(function(data){
+      staticAppData.gameData = data.game;
+      console.log('show data', staticAppData.gameData.player_x.email);
+      $('#oldplayersemail').html(staticAppData.gameData.player_x.email);
+    })
+  .fail(logRequestError);
+  };
+
+  let getUserGames = function(){ // put index and player
+    $.ajax({
+      url: staticAppData.baseUrl + '/games',
+      type: 'GET',
+      headers: {
+        Authorization: 'Token token=' + staticAppData.userData.user.token,
+      },
+      data: {}
+    })
+    .done(function(data){
+      console.log('user games',data);
+      console.log(data.games.length);
+      $('#gameCounter').html(data.games.length);
+    })
+    .fail(logRequestError);
+  };
 
 module.exports = {
 staticAppData,
@@ -94,4 +172,8 @@ register,
 logIn,
 logOut,
 changePw,
+createGame,
+updateGame,
+showGame,
+getUserGames
 };

@@ -1,6 +1,7 @@
 "use strict";
 
 let gameFunctions = require('./gameBackend');
+let api = require('./api');
 
 let count = 0;
 let currentPlayer = 'x';
@@ -37,10 +38,14 @@ let createMove = function () {
             currentPlayer === 'x' ? score.playerOLoss++ : score.playerXLoss++;
             confirm(currentPlayer + ' has won!');
             postScoreBoard();
+            api.createGame();
+            api.getUserGames();
+            api.showGame();
             gameFunctions.gameBoardReset();
             count = 0;
             return;
           }
+          api.updateGame(currentPlayer, event.target.id);
           currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
         } else {
           confirm('sorry someone is all ready here!');
