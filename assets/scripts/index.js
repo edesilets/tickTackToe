@@ -6,7 +6,7 @@
 // use require without a reference to ensure a file is bundled
 require('./gameBackend');
 let api = require('./api');
-let jq = require('./ui');
+let ui = require('./ui');
 
 let init = function() {
   $('#register').on('submit', api.register);
