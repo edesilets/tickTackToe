@@ -16,7 +16,7 @@ const checkWinner = function (player) {
 }
 
 const winnerDia = function(player) {                 // See if possible to simplify more!
-  let count = 0;
+  let count = false;
 
   for (let i = 0; i < gameBoard.length; i += 4) {
     if (gameBoard[i] === player) {
@@ -26,8 +26,7 @@ const winnerDia = function(player) {                 // See if possible to simpl
       return true;
     }
   }
-
-  count = 0;
+  count = false;
 
   for (let i = 2; i < gameBoard.length; i += 2) {
     if (gameBoard[i] === player) {
@@ -37,12 +36,14 @@ const winnerDia = function(player) {                 // See if possible to simpl
       return true;
     }
   }
+
   return false;
 };
 
 const winnerHorz = function(player) {           // simplify !!!!!
-  let count = false;
   //array inc for expantion use it insed for I so each iteration increases.
+  let count = false;
+
   for (let i = 0; i <= 2; i++) {
     if (gameBoard[i] === player) {
       count++;
@@ -51,6 +52,8 @@ const winnerHorz = function(player) {           // simplify !!!!!
       return true;
     }
   }
+  count = false;
+
   for (let i = 3; i <= 5; i++) {
     if (gameBoard[i] === player) {
       count++;
@@ -59,6 +62,8 @@ const winnerHorz = function(player) {           // simplify !!!!!
       return true;
     }
   }
+  count = false;
+
   for (let i = 6; i <= 8; i++) {
     if (gameBoard[i] === player) {
       count++;
@@ -67,6 +72,8 @@ const winnerHorz = function(player) {           // simplify !!!!!
       return true;
     }
   }
+  count = false;
+
   return false;
 };
 
