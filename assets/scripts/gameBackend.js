@@ -13,10 +13,10 @@ const checkWinner = function (player) {
 
     return true;
   }
-}
+};
 
 const winnerDia = function(player) {                 // See if possible to simplify more!
-  let count = false;
+  let count = 0;
 
   for (let i = 0; i < gameBoard.length; i += 4) {
     if (gameBoard[i] === player) {
@@ -40,11 +40,26 @@ const winnerDia = function(player) {                 // See if possible to simpl
   return false;
 };
 
-const winnerHorz = function(player) {           // simplify !!!!!
-  //array inc for expantion use it insed for I so each iteration increases.
-  let count = false;
+const winnerHorz = function (player) {
+  if (hozChecker(0,2,player)) {
 
-  for (let i = 0; i <= 2; i++) {
+    return true;
+  } else if (hozChecker(3,5,player)) {
+
+    return true;
+  }else if (hozChecker(6,8,player)) {
+
+    return true;
+  } else {
+
+    return false;
+  }
+};
+
+const hozChecker = function (start, end, player) {
+  let count = 0;
+
+  for (let i = start; i <= end; i++) {
     if (gameBoard[i] === player) {
       count++;
     }
@@ -52,28 +67,6 @@ const winnerHorz = function(player) {           // simplify !!!!!
       return true;
     }
   }
-  count = false;
-
-  for (let i = 3; i <= 5; i++) {
-    if (gameBoard[i] === player) {
-      count++;
-    }
-    if (count === 3) {
-      return true;
-    }
-  }
-  count = false;
-
-  for (let i = 6; i <= 8; i++) {
-    if (gameBoard[i] === player) {
-      count++;
-    }
-    if (count === 3) {
-      return true;
-    }
-  }
-  count = false;
-
   return false;
 };
 
@@ -98,6 +91,8 @@ const gameBoardReset = function () {
   for (let i = 0; i < gameBoard.length; i++) {
     gameBoard[i] = null;
   }
+  debugger;
+  $('.gameboard').empty();
 };
 
 const setSquare = function(player, place) {
@@ -108,6 +103,7 @@ const getPieceAt = function(place) {
   let pieceType = gameBoard[place];
   return pieceType;
 };
+
 module.exports = {
  getPieceAt,
  setSquare,
