@@ -1,6 +1,6 @@
 'use strict';
 
-const gameBoard = [null,null,null,null,null,null,null,null,null]; // do not change array name all logic will break for functions
+const gameBoard = [null, null, null, null, null, null, null, null, null]; // do not change array name all logic will break for functions
 
 const checkWinner = function (player) {
   if (winnerDia(player)) {
@@ -12,11 +12,14 @@ const checkWinner = function (player) {
   } else if (winnerVert(player)) {
 
     return true;
+  } else {
+
+    return false;
   }
 };
 
 const winnerDia = function(player) {                 // See if possible to simplify more!
-  let count = 0;
+  let count = false;
 
   for (let i = 0; i < gameBoard.length; i += 4) {
     if (gameBoard[i] === player) {
@@ -28,7 +31,7 @@ const winnerDia = function(player) {                 // See if possible to simpl
   }
   count = false;
 
-  for (let i = 2; i < gameBoard.length; i += 2) {
+  for (let i = 2; i < 7; i += 2) { // this cant have array.length '9' so it hits 8
     if (gameBoard[i] === player) {
       count++;
     }
@@ -57,7 +60,7 @@ const winnerHorz = function (player) {
 };
 
 const hozChecker = function (start, end, player) {
-  let count = 0;
+  let count = false;
 
   for (let i = start; i <= end; i++) {
     if (gameBoard[i] === player) {
@@ -91,7 +94,6 @@ const gameBoardReset = function () {
   for (let i = 0; i < gameBoard.length; i++) {
     gameBoard[i] = null;
   }
-  debugger;
   $('.gameboard').empty();
 };
 
