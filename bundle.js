@@ -53,7 +53,8 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var staticAppData = {
-	  baseUrl: 'http://tic-tac-toe.wdibos.com'
+	  baseUrl: 'http://tic-tac-toe.wdibos.com',
+	  loginStatus: false
 	};
 
 	// Functionality of all api features.
@@ -66,6 +67,7 @@ webpackJsonp([0],[
 	var logRequestError = function logRequestError(requestObject) {
 	  console.error('fail from AJAX');
 	  console.error(requestObject);
+	  return false;
 	};
 
 	// API Controls
@@ -92,9 +94,11 @@ webpackJsonp([0],[
 	    processData: false, // Needed for FormData This is because item
 	    data: item // item is referancing the new object called 'item'.
 	  }).done(function (data) {
-	    console.log(data);
+	    //console.log('api login data',data);
 	    staticAppData.userData = data;
+	    staticAppData.loginStatus = true;
 	    createGame();
+	    getUserGames();
 	  }).fail(logRequestError);
 	};
 
@@ -112,6 +116,7 @@ webpackJsonp([0],[
 	    data: item // item is referancing the new object called 'item'.
 	  }).done(function () {
 	    alert('you are loged out!');
+	    staticAppData.loginStatus = false;
 	  }).fail(logRequestError);
 	};
 
@@ -144,7 +149,7 @@ webpackJsonp([0],[
 	    data: {}
 	  }).done(function (data) {
 	    staticAppData.gameData = data.game;
-	    console.log('createGame: ', staticAppData.gameData);
+	    //console.log('api createGame: ',staticAppData.gameData);
 	  }).fail(logRequestError);
 	};
 
@@ -167,9 +172,7 @@ webpackJsonp([0],[
 	  }). // "over": true
 	  done(function (data) {
 	    staticAppData.gameData = data.game;
-	    getUserGames();
-	    console.log(data);
-	    showGame();
+	    //console.log('api updateGame', staticAppData.gameData);
 	  }).fail(logRequestError);
 	};
 
@@ -184,7 +187,7 @@ webpackJsonp([0],[
 	    data: {}
 	  }).done(function (data) {
 	    staticAppData.gameData = data.game;
-	    console.log('show data', staticAppData.gameData.player_x.email);
+	    //console.log('api show data', staticAppData.gameData.player_x.email);
 	    $('#oldplayersemail').html(staticAppData.gameData.player_x.email);
 	  }).fail(logRequestError);
 	};
@@ -199,8 +202,8 @@ webpackJsonp([0],[
 	    },
 	    data: {}
 	  }).done(function (data) {
-	    console.log('user games', data);
-	    console.log(data.games.length);
+	    //console.log('api user games',data);
+	    //console.log(data.games.length);
 	    $('#gameCounter').html(data.games.length);
 	  }).fail(logRequestError);
 	};
@@ -253,27 +256,36 @@ webpackJsonp([0],[
 	        gameFunctions.gameBoard[event.target.id] = currentPlayer;
 	        $(this).text(currentPlayer); // I DONT UNDERSTAND HOW 'this' IS WORKING.
 	        count++;
-	        //api.updateGame(index , currentplayer);
-	        //api push one move at a time
-	        console.log(gameFunctions.gameBoard);
+	        //console.log(gameFunctions.gameBoard);
 	        var oppWinner = currentPlayer === 'x' ? 'o' : 'x';
 	        if (gameFunctions.checkWinner(currentPlayer) || gameFunctions.checkWinner(oppWinner)) {
 	          currentPlayer === 'x' ? score.playerXWins++ : score.playerOWins++;
 	          currentPlayer === 'x' ? score.playerOLoss++ : score.playerXLoss++;
 	          confirm(currentPlayer + ' has won!');
 	          postScoreBoard();
-	          api.createGame();
-	          api.getUserGames();
 	          api.showGame();
+	          api.getUserGames(); // completed game count
 	          gameFunctions.gameBoardReset();
+	          api.createGame();
+	          console.log(gameFunctions.gameBoard);
 	          count = 0;
 	          return;
 	        }
-	        api.updateGame(currentPlayer, event.target.id);
+	        if (api.staticAppData.loginStatus) {
+	          api.updateGame(currentPlayer, event.target.id);
+	        }
 	        currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
+	        $('#currentturn').html(currentPlayer);
 	      } else {
 	        confirm('sorry someone is all ready here!');
 	      }
+	    } else {
+	      score.tie++;
+	      confirm('TIE!!!');
+	      postScoreBoard();
+	      gameFunctions.gameBoardReset();
+	      count = 0;
+	      return;
 	    }
 	  });
 	};
