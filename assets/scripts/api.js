@@ -2,6 +2,7 @@
 
 const staticAppData = {
   baseUrl : 'http://tic-tac-toe.wdibos.com',
+  loginStatus : false
 };
 
 
@@ -15,6 +16,7 @@ let logResponseBody = function(responseBody) {
 let logRequestError = function(requestObject) {
   console.error('fail from AJAX');
   console.error(requestObject);
+  return false;
 };
 
 // API Controls
@@ -44,9 +46,11 @@ let logIn = function(event) {
     data: item                              // item is referancing the new object called 'item'.
   })
   .done(function (data) {
-    console.log(data);
+    //console.log('api login data',data);
     staticAppData.userData = data;
+    staticAppData.loginStatus = true;
     createGame();
+    getUserGames();
   })
   .fail(logRequestError);
 };
@@ -66,6 +70,7 @@ let logOut = function(event) {
   })
   .done(function () {
     alert('you are loged out!');
+    staticAppData.loginStatus = false;
   })
   .fail(logRequestError);
 };
@@ -101,7 +106,7 @@ let createGame = function() { //sighn in done and when new game is created.
   })
   .done(function(data){
     staticAppData.gameData = data.game;
-    console.log('createGame: ',staticAppData.gameData);
+    //console.log('api createGame: ',staticAppData.gameData);
   })
   .fail(logRequestError);
 };
@@ -125,9 +130,7 @@ let updateGame = function(player, index){ /// put index and player
   })
   .done(function(data){
     staticAppData.gameData = data.game;
-    getUserGames();
-    console.log(data);
-    showGame();
+    //console.log('api updateGame', staticAppData.gameData);
   })
   .fail(logRequestError);
 };
@@ -143,7 +146,7 @@ let showGame = function(){ // put index and player
     })
     .done(function(data){
       staticAppData.gameData = data.game;
-      console.log('show data', staticAppData.gameData.player_x.email);
+      //console.log('api show data', staticAppData.gameData.player_x.email);
       $('#oldplayersemail').html(staticAppData.gameData.player_x.email);
     })
   .fail(logRequestError);
@@ -159,8 +162,8 @@ let showGame = function(){ // put index and player
       data: {}
     })
     .done(function(data){
-      console.log('user games',data);
-      console.log(data.games.length);
+      //console.log('api user games',data);
+      //console.log(data.games.length);
       $('#gameCounter').html(data.games.length);
     })
     .fail(logRequestError);

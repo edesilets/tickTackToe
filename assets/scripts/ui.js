@@ -29,27 +29,36 @@ let createMove = function () {
           gameFunctions.gameBoard[event.target.id] = currentPlayer;
           $(this).text(currentPlayer); // I DONT UNDERSTAND HOW 'this' IS WORKING.
           count++;
-          //api.updateGame(index , currentplayer);
-          //api push one move at a time
-          console.log(gameFunctions.gameBoard);
+          //console.log(gameFunctions.gameBoard);
           let oppWinner = currentPlayer === 'x' ? 'o' : 'x';
           if (gameFunctions.checkWinner(currentPlayer) || gameFunctions.checkWinner(oppWinner)) {
             currentPlayer === 'x' ? score.playerXWins++ : score.playerOWins++;
             currentPlayer === 'x' ? score.playerOLoss++ : score.playerXLoss++;
             confirm(currentPlayer + ' has won!');
             postScoreBoard();
-            api.createGame();
-            api.getUserGames();
             api.showGame();
+            api.getUserGames(); // completed game count
             gameFunctions.gameBoardReset();
+            api.createGame();
+            console.log(gameFunctions.gameBoard);
             count = 0;
             return;
           }
-          api.updateGame(currentPlayer, event.target.id);
+          if (api.staticAppData.loginStatus) {
+            api.updateGame(currentPlayer, event.target.id);
+          }
           currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
+          $('#currentturn').html(currentPlayer);
         } else {
           confirm('sorry someone is all ready here!');
       }
+    } else {
+      score.tie++;
+      confirm('TIE!!!');
+      postScoreBoard();
+      gameFunctions.gameBoardReset();
+      count = 0;
+      return;
     }
   });
 };
