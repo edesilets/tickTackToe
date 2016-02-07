@@ -77,6 +77,7 @@ let logOut = function(event) {
   .done(function () {
     alert('you are loged out!');
     staticAppData.loginStatus = false;
+    $('.game-page').hide();
   })
   .fail(logRequestError);
 };
