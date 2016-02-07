@@ -1,18 +1,42 @@
+Tick Tac Toe
+By: Ethan Desilets
+  http://erdesi90562.github.io/tickTackToe
+
+Wireframe (./layoutWork);
+
+User story (Current)
+  The user must be able to register and then login.
+  The existing user must be able to login.
+  The user needs to be able to log out.
+  The user must login to play the game. (future if user login second user login same machine ) (left hand X right hand O);
+  The user must know who's turn it is. (x or o's turn);
+  The x player must know how many wins or loses they have. (of current browseer session.);
+  The current loged in play will be able to see the last player of the prevous game. (email address only) (future. Actually see the lasts played game);
+User Story (Future);
+  ....
+
+let explanations = {
+  techonlogies: {
+    languages: [JQUERY, HTML, CSS, SASS, SCSS, JAVASCRIPT],
+    protocols: [HTTP, AJAX,],
+  }
+  approach: {
+    old: ['I started from the font end. Working on the login. Then relized that it was consumeing to much time. I created a "new approach".'],
+    new: ['Login API', 'Backend Logic', 'Frontend Gameboard', 'Game API', 'Frontend User Panel'],
+    personalProperView: {
+      api: ['Login API','Game API'],
+      backEnd: ['Backend GameBoard', 'Backend ScoreBoard'],
+      frontEnd: ['Login(register, logout, etc)', 'Game Board', ''],
+    }
+  },
+  unsolvedProblems: ['Dont for get to fill this in'],
+};
+
+
 Deliverables
 
-When you present your project, you must hand in the following things
-
-A working browser game, built by you, hosted on GitHub Pages (or an alternative platform).
-A git repository hosted on Github, with a link to your hosted game, and frequent commits dating back to the very beginning of the project
-A readme.md file with explanations of the technologies used, the approach taken, unsolved problems, etc.
-A link to your hosted working game in the URL section of your Github repo
-Links to wireframes and user stories, preferably in the README of your repo.
-In order to get a satisfactory score, your app must:
-
-Be deployed online, where the rest of the world can access it
-Render a game board in the browser
-Switch turns between X and O (or whichever markers you select)
 Visually display which side won if a player gets three in a row or show a draw/"cat’s game" if neither wins
-Use jQuery for DOM manipulation and event handling
+
 Use AJAX for data storage and retrieval
+
 In addition, you must use separate files for your HTML, CSS, and JavaScript, and (where possible) use semantic markup for your HTML. And in general, try to stick with KISS (Keep It Stupidly Simple) and DRY (Don't Repeat Yourself) principles.
