@@ -1,11 +1,11 @@
 "use strict";
 
-let gameFunctions = require('./gameBackend');
-let api = require('./api');
+const gameFunctions = require('./gameBackend');
+const api = require('./api');
 
 let count = 0;
 let currentPlayer = 'x';
-let score = {
+const score = {
   playerXWins: 0,
   playerXLoss: 0,
   playerOWins: 0,
@@ -13,7 +13,7 @@ let score = {
   tie : 0
 };
 
-let postScoreBoard = function () {
+const postScoreBoard = function () {
   console.log('score: ', score);
   $('#xwins').text(score.playerXWins);
   $('#xloss').text(score.playerXLoss);
@@ -63,8 +63,22 @@ let createMove = function () {
   });
 };
 
+const loginPass = function () {
+$('#myModal').modal('toggle');
+$('#inputPassword').val('');
+$('#inputEmail').val('');
+$('.log-text').text('');
+     // otherwise try again or register.
+};
+
+const loginFail = function () {
+$('.log-text').text('Please try again or Register.');
+};
+
 module.exports = {
   createMove,
   postScoreBoard,
-  score
+  score,
+  loginPass,
+  loginFail
 };

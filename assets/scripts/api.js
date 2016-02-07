@@ -1,5 +1,7 @@
 'use strict';
 
+const ui = require('./ui');
+
 const staticAppData = {
   baseUrl : 'http://tic-tac-toe.wdibos.com',
   loginStatus : false
@@ -51,8 +53,12 @@ let logIn = function(event) {
     staticAppData.loginStatus = true;
     createGame();
     getUserGames();
+    //console.log(' look for user id ', staticAppData.userData);
+    ui.loginPass();
   })
-  .fail(logRequestError);
+  .fail(function () {
+    ui.loginFail();
+  });
 };
 
 let logOut = function(event) {
