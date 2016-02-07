@@ -9,21 +9,15 @@
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="#">Welcome to Tick Tac Toe!</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <button type="button" data-toggle="modal" data-target="#myModalRegister" class="btn btn-primary">Register</button>
+              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Login</button>
               <div class="btn-group" role="group" aria-label="what lable is this">
-                <button type="button" data-toggle="modal" data-target="#myModalRegister" class="btn btn-primary">Register</button>
-                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Login</button>
                 <form id="logOut">
                   <button type="submit" id="submit" data-toggle="modal" class="btn btn-primary">Logout</button>
                 </form>
