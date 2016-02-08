@@ -53,7 +53,7 @@ webpackJsonp([0],[
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var ui = __webpack_require__(5);
+	//let ui = require('./ui');
 
 	var staticAppData = {
 	  baseUrl: 'http://tic-tac-toe.wdibos.com',
@@ -71,6 +71,19 @@ webpackJsonp([0],[
 	  console.error('fail from AJAX');
 	  console.error(requestObject);
 	  return false;
+	};
+
+	var loginPass = function loginPass() {
+	  $('#myModal').modal('toggle');
+	  $('#inputPassword').val('');
+	  $('#inputEmail').val('');
+	  $('.log-text').text('');
+	  $('.game-page').show();
+	  // otherwise try again or register.
+	};
+
+	var loginFail = function loginFail() {
+	  $('.log-text').text('Please try again or Register.');
 	};
 
 	// API Controls
@@ -103,9 +116,9 @@ webpackJsonp([0],[
 	    createGame();
 	    getUserGames();
 	    //console.log(' look for user id ', staticAppData.userData);
-	    ui.loginPass();
+	    loginPass();
 	  }).fail(function () {
-	    ui.loginFail();
+	    loginFail();
 	  });
 	};
 
@@ -180,7 +193,7 @@ webpackJsonp([0],[
 	  }). // "over": true
 	  done(function (data) {
 	    staticAppData.gameData = data.game;
-	    //console.log('api updateGame', staticAppData.gameData);
+	    console.log('api updateGame', staticAppData.gameData);
 	  }).fail(logRequestError);
 	};
 
@@ -298,25 +311,10 @@ webpackJsonp([0],[
 	  });
 	};
 
-	var loginPass = function loginPass() {
-	  $('#myModal').modal('toggle');
-	  $('#inputPassword').val('');
-	  $('#inputEmail').val('');
-	  $('.log-text').text('');
-	  $('.game-page').show();
-	  // otherwise try again or register.
-	};
-
-	var loginFail = function loginFail() {
-	  $('.log-text').text('Please try again or Register.');
-	};
-
 	module.exports = {
 	  createMove: createMove,
 	  postScoreBoard: postScoreBoard,
-	  score: score,
-	  loginPass: loginPass,
-	  loginFail: loginFail
+	  score: score
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
