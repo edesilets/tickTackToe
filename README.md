@@ -17,8 +17,8 @@ User Story (Future);
 
 let explanations = {
   techonlogies: {
-    languages: [JQUERY, HTML, CSS, SASS, SCSS, JAVASCRIPT],
-    protocols: [HTTP, AJAX,],
+    languages: ['JQUERY', 'HTML', 'CSS', 'SASS', 'SCSS', 'JAVASCRIPT'],
+    protocols: ['HTTP', 'AJAX'],
   }
   approach: {
     old: ['I started from the font end. Working on the login. Then relized that it was consumeing to much time. I created a "new approach".'],
