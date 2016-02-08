@@ -9,6 +9,7 @@ let api = require('./api');
 let ui = require('./ui');
 
 let init = function() {
+  $('.game-page').hide();
   $('#register').on('submit', api.register);
   $('#logIn').on('submit', api.logIn);
   $('#logOut').on('submit', api.logOut);
