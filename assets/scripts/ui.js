@@ -68,6 +68,7 @@ $('#myModal').modal('toggle');
 $('#inputPassword').val('');
 $('#inputEmail').val('');
 $('.log-text').text('');
+$('.game-page').show();
      // otherwise try again or register.
 };
 
