@@ -19,6 +19,7 @@ const postScoreBoard = function () {
   $('#xloss').text(score.playerXLoss);
   $('#owins').text(score.playerOWins);
   $('#oloss').text(score.playerOLoss);
+  $('#ties').text(score.tie);
 };
 
 let createMove = function () {

@@ -1,19 +1,23 @@
+OPEN THIS FILE IN AN TEXT EDITOR!
+
 Tick Tac Toe
 By: Ethan Desilets
   http://erdesi90562.github.io/tickTackToe
 
-Wireframe (./layoutWork);
+Wireframe (./layout/wire_frame.jpg);
 
 User story (Current)
-  The user must be able to register and then login.
-  The existing user must be able to login.
-  The user needs to be able to log out.
-  The user must login to play the game. (future if user login second user login same machine ) (left hand X right hand O);
-  The user must know who's turn it is. (x or o's turn);
-  The x player must know how many wins or loses they have. (of current browseer session.);
-  The current loged in play will be able to see the last player of the prevous game. (email address only) (future. Actually see the lasts played game);
+  The user must be able to register and then login;
+  The existing user must be able to login;
+  The user needs to be able to log out;
+  The user must login to play the game;
+  The user must know who's turn it is; (x or o's turn)
+  The x player must know how many wins or loses they have; (of current browseer session.);
+  The current loged in play will be able to see the last player of the prevous game; (email address only);
 User Story (Future);
-  ....
+  Two user will be able to login on the same machine;  (left hand X right hand O);
+  User will be able see the last played game;
+  Users will be able to play over internet;
 
 let explanations = {
   techonlogies: {
@@ -26,17 +30,8 @@ let explanations = {
     personalProperView: {
       api: ['Login API','Game API'],
       backEnd: ['Backend GameBoard', 'Backend ScoreBoard'],
-      frontEnd: ['Login(register, logout, etc)', 'Game Board', ''],
+      frontEnd: ['Login(register, logout, etc)', 'Game Board', 'userpanel'],
     }
   },
-  unsolvedProblems: ['Dont for get to fill this in'],
+  unsolvedProblems: ['Need to use promises to trigger events.', 'Keep everying serverside.', 'more isolation of priorties','modularlarity'],
 };
-
-
-Deliverables
-
-Visually display which side won if a player gets three in a row or show a draw/"cat’s game" if neither wins
-
-Use AJAX for data storage and retrieval
-
-In addition, you must use separate files for your HTML, CSS, and JavaScript, and (where possible) use semantic markup for your HTML. And in general, try to stick with KISS (Keep It Stupidly Simple) and DRY (Don't Repeat Yourself) principles.

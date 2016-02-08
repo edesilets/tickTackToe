@@ -26,6 +26,60 @@
         </div><!-- /.container-fluid -->
       </nav>
 
+      <div class="game-page">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                  profile image <span id='image'></span>
+                </li>
+                <li>
+                  Login Status <span id='login-status'></span>
+                </li>
+                <h3>X</h3>
+                <li>
+                  WINS: <span id='xwins'></span>
+                </li>
+                <li>
+                  LOSSES: <span id='xloss'></span>
+                </li>
+                <h3>O</h3>
+                <li>
+                  WINS: <span id='owins'></span>
+                </li>
+                <li>
+                  LOSSES: <span id='oloss'></span>
+                </li>
+                <h3>Misc</h3>
+                <li>
+                  CURRENT TURN <span id='currentturn'></span>
+                </li>
+                <li>
+                  Game Count: <span id='gameCounter'></span>
+                </li>
+                <li>
+                  Previous X players email: <span id='oldplayersemail'></span>
+                </li>
+                <li>
+                    TIES: <span id='ties'></span>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <section class="gameboard-wrapper">
+            <div class="gameboard" id='0'></div>
+            <div class="gameboard" id='1'></div>
+            <div class="gameboard" id='2'></div>
+            <div class="gameboard" id='3'></div>
+            <div class="gameboard" id='4'></div>
+            <div class="gameboard" id='5'></div>
+            <div class="gameboard" id='6'></div>
+            <div class="gameboard" id='7'></div>
+            <div class="gameboard" id='8'></div>
+        </section>
+      </div>
+
+<!---*********** All MODALS ARE LISTED BELOW. *********** --->
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -112,41 +166,6 @@
         </div>
       </div>
 
-      <div class="game-page">
-        <nav class="left-user-panel">
-          <ul>
-            <li>profile image <span id='image'></span></li>
-            <li>Login Status <span id='login-status'></span></li>
-            <h3>X</h3>
-            <ul>
-              <li>WINS: <span id='xwins'></span></li>
-              <li>LOSSES: <span id='xloss'></span></li>
-            <ul>
-            <h3>O</h3>
-            <ul>
-              <li>WINS: <span id='owins'></span></li>
-              <li>LOSSES: <span id='oloss'></span></li>
-            </ul>
-            <h3>Misc</h3>
-            <ul>
-              <li>CURRENT TURN <span id='currentturn'></span></li>
-              <li>Game Count: <span id='gameCounter'></span></li>
-              <li>Previous X players email: <span id='oldplayersemail'></span></li>
-            </ul>
-          </ul>
-        </nav>
-        <section class="gameboard-wrapper">
-            <div class="gameboard" id='0'></div>
-            <div class="gameboard" id='1'></div>
-            <div class="gameboard" id='2'></div>
-            <div class="gameboard" id='3'></div>
-            <div class="gameboard" id='4'></div>
-            <div class="gameboard" id='5'></div>
-            <div class="gameboard" id='6'></div>
-            <div class="gameboard" id='7'></div>
-            <div class="gameboard" id='8'></div>
-        </section>
-      </div>
       <!-- <i class="fa fa-times fa-stack-2x"></i>
       <i class="fa fa-circle-o fa-2x"></i>
       <i class="fa fa-cog fa-2x"></i> -->
