@@ -63,23 +63,8 @@ let createMove = function () {
   });
 };
 
-const loginPass = function () {
-$('#myModal').modal('toggle');
-$('#inputPassword').val('');
-$('#inputEmail').val('');
-$('.log-text').text('');
-$('.game-page').show();
-     // otherwise try again or register.
-};
-
-const loginFail = function () {
-$('.log-text').text('Please try again or Register.');
-};
-
 module.exports = {
   createMove,
   postScoreBoard,
-  score,
-  loginPass,
-  loginFail
+  score
 };

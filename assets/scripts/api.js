@@ -1,6 +1,6 @@
 'use strict';
 
-const ui = require('./ui');
+//let ui = require('./ui');
 
 const staticAppData = {
   baseUrl : 'http://tic-tac-toe.wdibos.com',
@@ -20,6 +20,21 @@ let logRequestError = function(requestObject) {
   console.error(requestObject);
   return false;
 };
+
+
+let loginPass = function () {
+$('#myModal').modal('toggle');
+$('#inputPassword').val('');
+$('#inputEmail').val('');
+$('.log-text').text('');
+$('.game-page').show();
+     // otherwise try again or register.
+};
+
+let loginFail = function () {
+$('.log-text').text('Please try again or Register.');
+};
+
 
 // API Controls
 /* ------------------- LOG IN OUT OR REGISTER  API --------------------------------------------*/
@@ -54,10 +69,10 @@ let logIn = function(event) {
     createGame();
     getUserGames();
     //console.log(' look for user id ', staticAppData.userData);
-    ui.loginPass();
+    loginPass();
   })
   .fail(function () {
-    ui.loginFail();
+    loginFail();
   });
 };
 
@@ -137,7 +152,7 @@ let updateGame = function(player, index){ /// put index and player
   })
   .done(function(data){
     staticAppData.gameData = data.game;
-    //console.log('api updateGame', staticAppData.gameData);
+    console.log('api updateGame', staticAppData.gameData);
   })
   .fail(logRequestError);
 };
